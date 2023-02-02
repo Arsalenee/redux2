@@ -1,6 +1,6 @@
 import {
   ADDTODO,
-  DELETTODO,
+  DELETETODO,
   EDITTODO,
   FILTERTODO,
   CHECKTODO,
@@ -18,15 +18,19 @@ export const checktodo = (id, isDone) => {
     payload: { id, isDone },
   };
 };
-export const edittodo = (Id, newDescription) => {
+export const edittodo = (Id, newDescription, isDoneNew) => {
   return {
     type: EDITTODO,
-    payload: Id,
+    payload: {
+      Id,
+      newDescription,
+      isDoneNew,
+    },
   };
 };
-export const delettodo = (Id) => {
+export const deletetodo = (Id) => {
   return {
-    type: DELETTODO,
+    type: DELETETODO,
     payload: Id,
   };
 };

@@ -1,4 +1,4 @@
-import { tasks } from "../../components/data";
+import { tasks } from "../../data";
 import {
   ADDTODO,
   DELETETODO,
@@ -9,7 +9,7 @@ import {
 
 const initstate = {
   tasks: tasks,
-  statuts: "all",
+  status: "all",
 };
 
 export const todoReducer = (state = initstate, action) => {
@@ -18,9 +18,13 @@ export const todoReducer = (state = initstate, action) => {
       console.log(action);
       return {
         ...state,
-        tasks: [...state.tasks, action.payload],
+        tasks: [
+          ...state.tasks,
+          { Id: tasks.length + 1, description: action.payload, isDone: false },
+        ],
       };
     case EDITTODO:
+      console.log(action);
       return {
         ...state,
         tasks: state.tasks.map((e) =>
@@ -28,7 +32,7 @@ export const todoReducer = (state = initstate, action) => {
             ? {
                 ...e,
                 description: action.payload.newDescription,
-                isDone: action.payload.isDoneEdit,
+                isDone: action.payload.isDoneNew,
               }
             : e
         ),
@@ -40,6 +44,7 @@ export const todoReducer = (state = initstate, action) => {
         tasks: state.tasks.filter((e) => e.Id != action.payload),
       };
     case FILTERTODO:
+      console.log(action);
       return {
         ...state,
         status: action.payload,

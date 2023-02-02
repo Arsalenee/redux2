@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addtodo, deletetodo } from "../JS/actions/Actions";
+import { addtodo, deletetodo } from "./js/action/todoAction";
 
 export const Addtask = () => {
   const dispatch = useDispatch();
