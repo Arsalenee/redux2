@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useSelector } from "react-redux";
-import { useTabsStyles } from "@chakra-ui/react";
+
 import EditTask from "./EditTask";
-import DeleteTodo from "./DeleteTodo";
+
+import DeleteTodo from "./deleteTodo";
 
 function Task({ isDone, description, Id }) {
   console.log(Id, "TASk");
@@ -19,7 +19,7 @@ function Task({ isDone, description, Id }) {
           style={{ width: "18rem" }}
           className="mb-2"
         >
-          <Card.Header>{description}del</Card.Header>
+          <Card.Header style={{color:"black"}}>{description}</Card.Header>
 
           <Card.Body
             style={{ display: "flex", justifyContent: "space-between" }}
@@ -36,7 +36,7 @@ function Task({ isDone, description, Id }) {
           style={{ width: "18rem" }}
           className="mb-2"
         >
-          <Card.Header>{description}</Card.Header>
+          <Card.Header style={{color:"black"}}>{description}</Card.Header>
           <Card.Body
             style={{ display: "flex", justifyContent: "space-between" }}
           >
